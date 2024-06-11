@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework: Populate Table with JSON</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Load JSON data and populate the table
+            $.getJSON('data.json', function(data) {
+                var table = '<table>';
+                table += '<tr><th>' + data.heading + '</th><th>' + data.subheadcal + '</th><th>' + data.subheadfat + '</th><th>' + data.subheadven + '</th></tr>';
+                table += '<tr><td>' + data.head1 + '</td><td>' + data.cal1 + '</td><td>' + data.fat1 + '</td><td>' + data.ven1 + '</td></tr>';
+                table += '<tr><td>' + data.head2 + '</td><td>' + data.cal2 + '</td><td>' + data.fat2 + '</td><td>' + data.ven2 + '</td></tr>';
+                table += '<tr><td>' + data.head3 + '</td><td>' + data.cal3 + '</td><td>' + data.fat3 + '</td><td>' + data.ven3 + '</td></tr>';
+                table += '<tr><td>' + data.head4 + '</td><td>' + data.cal4 + '</td><td>' + data.fat4 + '</td><td>' + data.ven4 + '</td></tr>';
+                table += '</table>';
+                $('#table-container').html(table);
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Calories Comparison of Popular Burgers</h1>
+    <div id="table-container"></div>
+</body>
+</html>
